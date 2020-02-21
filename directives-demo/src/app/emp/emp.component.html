@@ -1,0 +1,24 @@
+<div *ngIf="isEmpty" >No Employees found!</div>
+
+<button (click)="deleteEmp()">Delete One Employee</button>
+<table>
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Age</td>
+    </tr>
+
+    <tr *ngFor="let e of empList">
+        <td>{{e.firstName}}</td>
+        <td>{{e.lastName}}</td>
+        <td>{{e.age}}</td>
+    </tr>
+
+</table>
+
+<form #empForm=ngForm (ngSubmit)="save(empForm)">
+    Enter firstname: <input [(ngModel)]="emp.firstName" name="firstName"/> <br/>
+    Enter lastname: <input [(ngModel)]="emp.lastName" name="lastName" /> <br/>
+    Enter age: <input [(ngModel)]="emp.age" name="age" /> <br/>
+    <input type="submit" value="save" />
+</form>
